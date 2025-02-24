@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monkey Fun Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        #factButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #8B4513; /* Monkey brown color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #factButton:hover {
+            background-color: #A0522D;
+        }
+
+        .fact-text {
+            margin-top: 20px;
+            color: #333;
+            font-size: 18px;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        /* Subtle animation for text appearance */
+        .fact-text.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="factButton">Show Random Monkey Fact</button>
+        <p id="factDisplay" class="fact-text"></p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const facts = [
+                "Monkeys are highly social animals and often form large, complex social structures known as troops.",
+                "Some species of monkeys are known for their use of tools. For example, capuchin monkeys use stones to crack nuts.",
+                "The smallest monkey in the world is the pygmy marmoset, which can be as small as 5 inches (12.7 cm) in length and weigh about 4.2 ounces (120 grams).",
+                "Monkeys have prehensile tails, which means they can use their tails to grasp or hold objects. This feature is particularly useful for arboreal species that navigate through trees.",
+                "Many monkeys are omnivorous and have a varied diet that includes fruits, leaves, insects, and occasionally small animals.",
+                "Communication in monkeys involves a complex system of vocalizations, facial expressions, and body postures.",
+                "Some monkey species, like the howler monkeys, are among the loudest animals on the planet. Their howls can be heard up to 3 miles (4.8 km) away in dense forest.",
+                "Monkeys play a significant role in seed dispersal. As they move through the forest and consume fruits, they help in the germination and spread of many tree species.",
+                "The mandrill is the largest type of monkey, with males weighing up to 77 pounds (35 kilograms) and featuring distinctive colorful facial and buttock markings.",
+                "Monkeys are found in various environments across the world, from rainforests to mountains, although they are primarily native to Asia, Africa, and Central and South America."
+            ];
+
+            const button = document.getElementById('factButton');
+            const factDisplay = document.getElementById('factDisplay');
+
+            button.addEventListener('click', function() {
+                const randomIndex = Math.floor(Math.random() * facts.length);
+                factDisplay.textContent = facts[randomIndex];
+                factDisplay.classList.remove('show');
+                setTimeout(() => {
+                    factDisplay.classList.add('show');
+                }, 10); // Timeout for the animation to trigger
+            });
+        });
+    </script>
+</body>
+</html>
